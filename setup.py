@@ -9,7 +9,7 @@ install_requires = [
 
 setup(
     name = 'hauth',
-    version = '0.0.2',
+    version = '0.0.3',
     packages = ['hauth'],
     description = '',
     author = 'Daiki Shimada',
