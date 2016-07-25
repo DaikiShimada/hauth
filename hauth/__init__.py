@@ -1,4 +1,4 @@
-# -*- coding: utf-6 -*-
+# -*- coding: utf-8 -*-
 
 import six
 import argparse
