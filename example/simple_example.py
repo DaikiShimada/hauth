@@ -7,9 +7,9 @@ import hauth
 check_auth = False
 while not check_auth:
     # get username and password
-    name, passwd = hauth.get_user_propaties()
+    name, passwd = hauth.get_user_properties()
 
-    check_auth = hauth.authorize(name, passwd):
+    check_auth = hauth.hauthorize(name, passwd)
     if check_auth:
         print('Authorization Success!!')
     else:
