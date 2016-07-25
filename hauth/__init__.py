@@ -25,7 +25,7 @@ def post(url, usrname, passwd):
         res = six.moves.urllib.request.urlopen(req)
 
         resBody = str(res.read())
-        ret = "(s)" in resBody:
+        ret = "(s)" in resBody
 
     except six.moves.urllib.error.URLError as e:
         logger.error(e)
