@@ -8,7 +8,7 @@ import getpass
 
 import logging
 logger = logging.getLogger(__name__)
-logger.setLevel(logging.WARNING)
+logger.setLevel(logging.ERROR)
 
 def post(url, usrname, passwd):
     ret = False
@@ -28,6 +28,7 @@ def post(url, usrname, passwd):
     except six.moves.urllib.error.URLError as e:
         logger.error(e)
         ret = False
+        raise
     return ret
 
 def hauthorize(usrname, passwd, url='https://apresia.hosei.ac.jp:4443/cgi-bin/adeflogin.cgi'):
