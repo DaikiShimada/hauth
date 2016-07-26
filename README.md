@@ -13,12 +13,12 @@ If you want to login H. Univ. network system, call following the methods:
 ```python
 import hauth
 # call username and password interface
-name, passwd = hauth.get_user_propaties()
+name, passwd = hauth.get_user_properties()
 # authorize!!
 hauth.hathorize(name, passwd)
 ```
 
-More detail is in example code.
+More detail is in [example](example/simple_example.py) code.
 
 # Lisence
 The MIT License (MIT)
