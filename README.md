@@ -18,7 +18,13 @@ name, passwd = hauth.get_user_properties()
 hauth.hathorize(name, passwd)
 ```
 
+If you are one-liner...
+```python
+import hauth
+hauth.hauthorize(*hauth.get_user_properties())
+```
+
 More detail is in [example](example/simple_example.py) code.
 
-# Lisence
+# License
 The MIT License (MIT)
