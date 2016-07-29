@@ -10,6 +10,23 @@ import logging
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
 
+opts = {
+        'require': {
+            'username': 'your username',
+            'password': 'your password',
+            }
+        }
+
+def config_profile(editor='vi'):
+    import os
+    import pit
+    # set ENVIRON
+    if not os.environ.get('EDITOR'):
+        os.environ['EDITOR'] = editor
+
+    pit.Pit.get('hauth.account', opts)
+    
+
 def post(url, usrname, passwd):
     ret = False
     try:
@@ -34,7 +51,16 @@ def post(url, usrname, passwd):
 def hauthorize(usrname, passwd, url='https://apresia.hosei.ac.jp:4443/cgi-bin/adeflogin.cgi'):
     return post(url, usrname, passwd)
 
-def get_user_properties():
-    usrname = six.moves.input('User name: ')
-    passwd = getpass.getpass()
+def get_user_properties(from_pit=False):
+    if from_pit:
+        import pit
+        account = pit.Pit.get('hauth.account', opts)
+        usrname = account['username']
+        passwd = account['password']
+    else:
+        usrname = six.moves.input('User name: ')
+        passwd = getpass.getpass()
+    # strip back-slash
+    usrname = usrname.replace('\\', '')
+    passwd = passwd.replace('\\', '')
     return usrname, passwd
